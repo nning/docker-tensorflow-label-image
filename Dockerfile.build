@@ -1,0 +1,7 @@
+FROM tensorflow-source
+
+WORKDIR /opt/label_image/tensorflow-master
+RUN sed -i s:-lm:-static:g tensorflow/examples/label_image/BUILD
+RUN bazel build tensorflow/examples/label_image/...
+
+WORKDIR /opt/label_image
