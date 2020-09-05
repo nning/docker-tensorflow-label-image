@@ -1,0 +1,22 @@
+diff --git a/tensorflow/examples/label_image/label_image.py b/tensorflow/examples/label_image/label_image.py
+index 8828b90a..0fc9f527 100644
+--- a/tensorflow/examples/label_image/label_image.py
++++ b/tensorflow/examples/label_image/label_image.py
+@@ -20,7 +20,7 @@ from __future__ import print_function
+ import argparse
+ 
+ import numpy as np
+-import tensorflow as tf
++import tensorflow.compat.v1 as tf
+ 
+ 
+ def load_graph(model_file):
+@@ -71,6 +71,8 @@ def load_labels(label_file):
+ 
+ 
+ if __name__ == "__main__":
++  tf.compat.v1.disable_v2_behavior()
++
+   file_name = "tensorflow/examples/label_image/data/grace_hopper.jpg"
+   model_file = \
+     "tensorflow/examples/label_image/data/inception_v3_2016_08_28_frozen.pb"
